@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<script>
+
+</script>
+<link rel = "stylesheet" href = "static/css/profile.css">
+
+{% endblock %}
+
+{% block body1 %}
+
+        {% if loggedinuser %}
+<div class = "checkifloggeduser">
+    <div class = "checkifloggeduser1">
+            {% if isadmin %}
+                <span class = "logged_in_name_admin">
+            {{ loggedinuser }}
+            </span>
+            {% else %}
+                <span class = "logged_in_name">
+            {{ loggedinuser }}
+                </span>
+            {% endif %}
+            <a href = "/logout">Logout</a>
+    </div>
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "profile1">
+    <div class = "profile11">
+        {{ loggedinuser }}
+        <br><br>
+        Member since {{ profilecreated }}
+    </div>
+    <div class = "profile_avatar">
+        {% if not user_has_avatar %}
+
+        <div class = "get_avatar">
+            Get avatar
+        </div>
+            <form enctype="multipart/form-data" method = "POST">
+                <label for = "profile_picture">Choose a profile picture:</label>
+                <input type = "file" id = "profile_picture" name = "profile_picture" accept = "image/png, image/jpeg">
+                <div class = "change_profile">
+                <button name = "submit" value = "GET_AVATAR" class = "button_profile_pic" type = "submit">
+                    GET PROFILE PICTURE
+                </button>
+                </div>
+            </form>
+        {% else %}
+        <div class = "profile_avatar_image">
+            {% if avatar %}
+            <div class = "profile_avatar_image_pic">
+                <img src = "{{ url_for('static', filename = '/uploads/images/' + avatar ) }}">
+            </div>
+            {% endif %}
+        <form enctype="multipart/form-data" method = "POST" style = "margin-top: 40px;
+            margin-bottom: 40px;">
+                <div class = "profile_avatar_image_1">
+                    <label for = "profile_picture">Choose a profile picture:</label>
+                    <input type = "file" id = "change_profile_picture" name = "profile_picture" accept = "image/png, image/jpeg">
+                </div>
+                <div class = "change_profile">
+                <button name = "submit" value = "CHANGE_AVATAR" class = "button_profile_pic_1" type = "submit">
+                    CHANGE PROFILE PICTURE
+                </button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    <div class = "profile_inbox">
+        You have {{ inbox_messages|length }} messages in inbox. <br><br>
+        <a class = "upload_link" href = "/inbox">Inbox</a>
+    </div>
+    <div class = "profile_music">
+        You have submitted {{ music_sheets }} music sheets. <br><br>
+        <a class = "upload_link" href = "/upload">Upload a music sheet now!</a>
+    </div>
+</div>
+<script type = "text/javascript" src = "static/js/profile.js"></script>
+
+{% endblock %}

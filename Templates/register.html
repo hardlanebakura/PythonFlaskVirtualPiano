@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <title>Register</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/register.css') }}">
+
+    <script>
+        var all_users = {{ all_users|tojson }}
+    </script>
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "register">
+    <div class = "register_board">
+        <div class = "registrationtitle">
+            Sign up
+        </div>
+        <form action = "/register" method = "POST" onsubmit = "return validateRegistration(event)">
+        <div class = "inputwrapper">
+            <img class = "inputwrapperimg"  src = "{{ url_for('static', filename = '/images/email-icon.jpg') }}">
+            <input class = "loginform1" id = "email" type = "text" name = "register_email" placeholder = "Email">
+        </div>
+        <div class = "inputwrapper">
+            <img class = "inputwrapperimg"  src = "{{ url_for('static', filename = '/images/login-icon.jpg') }}">
+            <input class = "loginform1" id = "username" type = "text" name = "register_username" placeholder = "Username">
+        </div>
+             <div class = "inputwrapper">
+                <img class = "inputwrapperimg"  src = "{{ url_for('static', filename = '/images/password-icon.jpg') }}">
+                <input class = "loginform1" id = "password1" type = "password" name = "register_password1" placeholder = "Password">
+             </div>
+        <div class = "inputwrapper">
+            <img class = "inputwrapperimg"  src = "{{ url_for('static', filename = '/images/password-icon.jpg') }}">
+            <input class = "loginform1" id = "password2" type = "password" name = "register_password2" placeholder = "Confirm password">
+        </div>
+        <div class = "handlepotentialerrors" id = "handleemail">
+            Email doesn't exist
+        </div>
+        <div class = "handlepotentialerrors" id = "handleusername">
+            Username already exists
+        </div>
+        <div class = "handlepotentialerrors" id = "handleshortpassword">
+            Password is too short
+        </div>
+        <div class = "handlepotentialerrors" id = "handlepassnonmatch" style = "margin-bottom:10px;">
+            Passwords don't match
+        </div>
+        <div class = "haveaccountwrapper">
+            <div class = "haveaccount">
+                Already have an account?
+            </div>
+            <div class = "haveaccountsologin">
+                <a href = "/login">Log in</a>
+            </div>
+        </div>
+        <input type = "submit" class = "reg_button" name = "submit" value="Submit">
+
+</form>
+    </div>
+</div>
+
+<script src = "{{ url_for('static', filename = '/js/register.js') }}"></script>
+
+{% endblock %}

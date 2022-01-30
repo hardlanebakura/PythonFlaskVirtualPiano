@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <title>Login</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/login.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class = "loginwrapper">
+    <div class = "login">
+         <div class = "loginheader">
+             <img src = "{{ url_for('static', filename = '/images/virtual-piano-keyboard-logo-white.png') }}">
+         </div>
+         <div class = "logininputs">
+             <form action = "/login/" method = "POST" >
+                 <div class = "inputwrapper">
+                    <img class = "inputwrapperimg" src = "{{ url_for('static', filename = '/images/login-icon.jpg') }}">
+                    <input class = "loginform1" type = "text" name = "username_1" placeholder = "Username">
+                 </div>
+                 <div class = "inputwrapper">
+                    <img class = "inputwrapperimg"  src = "{{ url_for('static', filename = '/images/password-icon.jpg') }}">
+                    <input class = "loginform1" type = "password" name = "password_1" placeholder = "Password">
+                 </div>
+
+         </div>
+        <div class = "handlepotentialerrors">
+            {% if handle %}
+                {% if handle == 1 %}
+                    Username must exist
+                {% endif %}
+                {% if handle == 2 %}
+                    Password didn't match
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class = "loginbuttonwrapper">
+             <input class = "loginbutton changetodoonhover" type="submit" value = "LOGIN" name = "submit">
+             </form>
+        </div>
+        <div class = "loginadditional">
+             <div class = "recovery">
+                 Forgot your password?
+             </div>
+             <div class = "linktoregister">
+                 <a href = "/register">Register</a>
+             </div>
+             <div class = "conditions">
+                 Terms and Conditions
+             </div>
+        </div>
+    </div>
+    </div>
+
+    <script src = "{{ url_for('static', filename = '/js/login.js') }}"></script>
+
+{% endblock %}

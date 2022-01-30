@@ -1,0 +1,97 @@
+.profile1 {
+
+    min-height:614px;
+    text-align:center;
+
+}
+
+.profile11 {
+
+    margin-top:80px;
+    margin-bottom:99px;
+
+}
+
+.footermenu {
+
+    bottom: 0px;
+    position: fixed;
+    width: 1903px;
+
+}
+
+.change_profile {
+
+    margin-top:22px;
+    margin-bottom:22px;
+
+}
+
+.get_avatar {
+
+    margin-bottom:40px;
+
+}
+
+.button_profile_pic {
+
+    height: 38px;
+    width: 117px;
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
+.button_profile_pic_1 {
+
+    height: 38px;
+    width: 190px;
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
+.profile_avatar_image {
+
+    margin-bottom:40px;
+
+}
+
+.profile_avatar_image_pic {
+
+    margin-bottom:40px;
+
+}
+
+.profile_avatar_image img {
+
+    height:80px;
+    width:80px;
+    border-radius:50%;
+
+}
+
+.profile_avatar_image_1 {
+
+    margin-top:40px;
+    margin-bottom:40px;
+
+}
+
+.profile_music {
+
+    margin-bottom:40px;
+
+}
+
+.profile_inbox {
+
+    margin-top:40px;
+    margin-bottom:40px;
+
+}
+

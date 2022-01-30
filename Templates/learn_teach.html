@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Learn/Teach</title>
+<link rel = "stylesheet" href = "static/css/learn_teach.css">
+<link rel = "stylesheet" href = "static/css/music_sheets.css">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "learn_teach_wrapper">
+    <div class = "learn_teach">
+        {% if loggedinuser %}
+        <div class = "learn_teach_1">
+            <form method = "POST">
+                I am looking to:
+                <select name = "learn_teach">
+                    <option name = "learn" value = "Learn">Learn</option>
+                    <option name = "teach" value = "Teach">Teach</option>
+                </select>
+                <div class = "learn_teach_button">
+                    <button name = "submit" class = "button_profile_pic_1" value = "LEARN_TEACH" type = "submit" >POST</button>
+                </div>
+            </form>
+        </div>
+        {% else %}
+            You must be logged in to post your request for learn/teach.
+        {% endif %}
+        <div class = "learn_teach_requests">
+            {% for user in learn_teach_users %}
+            {{ user.username }} is looking to {{ user.is_searching }}
+            {% if loggedinuser %}
+            <div class = "learn_teach_requests_message">
+                <a href = "/compose_message?recipient={{ user.username }}">
+                    Message
+                </a>
+            </div>
+            {% else %}
+            You must be logged in to message the user.
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+    <script>
+        var headerMenuItems = document.getElementsByClassName("header_menu_item");
+        var activeItem = document.getElementsByClassName("active")[0];
+        activeItem.classList.remove("active");
+        headerMenuItems[2].classList.add("active");
+    </script>
+
+{% endblock %}

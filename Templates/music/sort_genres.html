@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Sort Genres</title>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class = "sort_genres">
+
+        {% if music_sheets|length == 0 %}
+            There are no music sheets.
+        {% endif %}
+        {% for sheet in music_sheets %}
+        <div class = "sort_genres_sheet_title">
+            {{ sheet.title.split(".")[0] }} <br>
+        </div>
+        <div class = "sort_genres_buttons">
+            <a href = "/music/sheets/edit/{{ sheet.id }}">
+            <button class = "sort_genre_button">
+                EDIT MUSIC SHEET
+            </button>
+            </a>
+            <a href = "/music/sheets/update/{{ sheet.id }}">
+            <button class = "sort_genre_button">
+                UPDATE GENRE
+            </button>
+            </a>
+            <a href = "/music/sheets/delete/{{ sheet.id }}">
+            <button class = "sort_genre_button">
+                DELETE SHEET
+            </button>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
+

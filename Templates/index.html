@@ -1,0 +1,755 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Virtual Piano</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/index.css') }}">
+
+    <script>
+        var keyboardNotes = {{ keyboard_notes|tojson }}
+        var keyboardSounds = {{ keyboard_sounds|tojson }}
+    </script>
+{% endblock %}
+
+{% block body %}
+
+<div class = "piano-bg">
+
+<div class = "piano" id = "piano">
+    <div class = "piano_menu_top">
+        <div class = "piano_menu_top_title">
+            Play the piano
+        </div>
+        <div class = "piano_menu_top_content">
+            Use your computer keyboard to play your chosen song
+        </div>
+    </div>
+    <div class = "piano_menu_bottom">
+        <div class = "piano_menu_bottom_item">
+            <div class = "piano_menu_bottom_item_img">
+                <img class = "menu_item_img" src = "{{ url_for('static', filename = '/images/virtual-piano-image-record.jpg') }}">
+            </div>
+            <div class = "piano_menu_bottom_item_title">
+                Record
+            </div>
+        </div>
+        <div class = "piano_menu_bottom_item">
+            <div class = "piano_menu_bottom_item_img">
+                <img class = "menu_item_img" src = "{{ url_for('static', filename = '/images/virtual-piano-image-record.jpg') }}">
+            </div>
+            <div class = "piano_menu_bottom_item_title">
+                Key Assist
+            </div>
+        </div>
+        <div class = "piano_menu_bottom_item">
+            <div class = "piano_menu_bottom_item_img">
+                <img class = "menu_item_img" src = "{{ url_for('static', filename = '/images/virtual-piano-image-record.jpg') }}">
+            </div>
+            <div class = "piano_menu_bottom_item_title">
+                Metronome
+            </div>
+        </div>
+        <div class = "piano_menu_bottom_item">
+            <div class = "piano_menu_bottom_item_img">
+                <img class = "menu_item_img" src = "{{ url_for('static', filename = '/images/virtual-piano-image-record.jpg') }}">
+            </div>
+            <div class = "piano_menu_bottom_item_title">
+                Sound
+            </div>
+        </div>
+    </div>
+    <div class = "piano_start_wrapper">
+    <div class = "piano_start">
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    1
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                !
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    2
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                @
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    3
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    4
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                $
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    5
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                %
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    6
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                ^
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    7
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    8
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                *
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    9
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                (
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    0
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    q
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                Q
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    w
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                W
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    e
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                E
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    r
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                T
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    t
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                Y
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+               <label class = "label1">
+                    y
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    u
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    i
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                I
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    o
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                O
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    p
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                P
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    a
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    s
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                S
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    d
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                D
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    f
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    g
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                G
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    h
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                H
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    j
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                J
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    k
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    l
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                L
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    z
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                Z
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    x
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    c
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                C
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    v
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                V
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    b
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_2">
+            <div class = "key_2_value">
+                B
+            </div>
+            <div class = "key_2_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    n
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+        <div class = "key_1">
+            <div class = "key_1_value">
+                <label class = "label1">
+                    m
+                </label>
+            </div>
+            <div class = "key_1_bottom">
+
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+</div>
+<div class = "piano_hints" id = "piano_hints">
+    <div class = "piano_hint">
+        <div class = "piano_hint_img">
+            <img class = "piano_hint_image" src = "{{ url_for('static', filename = '/images/virtual-piano-hint-1.png') }}">
+        </div>
+        <div class = "piano_hint_content">
+            1. <span class = "span1"> Select </span> a song in the Virtual Piano <span class = "span1"> Search box </span> or by browsing the <span class = "span1"> Music Sheets. </span>
+        </div>
+    </div>
+    <div class = "piano_hint">
+        <div class = "piano_hint_img">
+            <img class = "piano_hint_image"  src = "{{ url_for('static', filename = '/images/virtual-piano-hint-2.png') }}">
+        </div>
+        <div class = "piano_hint_content">
+            2. <span class = "span1"> Letters </span> in the music sheets refer to the <span class = "span1"> keys </span> on your computer keyboard.
+        </div>
+    </div>
+    <div class = "piano_hint">
+        <div class = "piano_hint_img">
+            <img class = "piano_hint_image"  src = "{{ url_for('static', filename = '/images/virtual-piano-hint-3.png') }}">
+        </div>
+        <div class = "piano_hint_content">
+            3. Press the <span class = "span1"> highlighted keys </span> on your <span class = "span1"> computer keyboard </span> to play the song.
+        </div>
+    </div>
+</div>
+<div class = "piano_info_wrapper">
+<div class = "piano_most_active_users">
+    <div class = "piano_most_active_users_title">
+        Most active users
+    </div>
+    <div class = "piano_most_active_users_content">
+        {% for user in most_active_users %}
+        <div class = "most_active_user">
+            <div class = "most_active_user_info">
+                <div class = "most_active_user_info_img">
+                    {% if user.avatar %}
+                    <img src = "{{ url_for('static', filename = '/uploads/images/' + user.avatar ) }}">
+                    {% else %}
+                    <img src = "{{ url_for('static', filename = '/images/login-icon.jpg') }}">
+                    {% endif %}
+                </div>
+                <div class = "most_active_user_info_username">
+                    {{ user.username }}
+                </div>
+            </div>
+            <div class = "most_active_user_info_1">
+                Sheets: {{ user.sheets }} <br>
+                Comments: {{ user.comments }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class = "piano_info">
+    <div class = "piano_info_title" id = "piano_info_title">
+        VIRTUAL PIANO
+    </div>
+    <div class = "piano_info_title_1">
+        Virtual Piano enables you to play the piano on your computer keyboard, mobile, and tablet.
+    </div>
+    <div class = "piano_info_content">
+        <div class = "piano_info_content_column">
+            <div class = "piano_info_content_title">
+                QUICK. EASY. ENJOYABLE.
+            </div>
+            <div class = "piano_info_content_title_1">
+                Learn to <span class = "span2"> play the piano instantly </span> on Virtual Piano. Become an online pianist and <span class = "span2"> create your own extraordinary music! </span>
+            </div>
+            <div class = "piano_info_content_content">
+                The platform enables you to play the piano instantly on your computer keyboard, mobile, and tablet.
+                This online tool helps you learn to play a variety of virtual music instruments, become an online pianist and create your own extraordinary music!
+                VirtualPiano.net is the original online piano platform, played by more than 19 million people a year. It is free to use by anyone, anywhere, anytime.
+                But there’s more. Way more, when you join.
+            </div>
+        </div>
+        <div class = "piano_info_content_column">
+            Those who wish to experience the full range of the platform’s powerful features have the option of <span class = "span3"> becoming a member. </span> You don’t need to download or install anything. However, <span class = "span3"> Virtual Piano offers a Web App </span> for all mobile & tablet devices as an option.
+            The best part is that you don’t even need to know how to read music notation. VirtualPiano.net’s music sheets use the plain English alphabet and simple semantics, so you can enjoy the experience of playing the piano in less than a minute.
+
+            Oh, and the music sheets are free too! Thousands of them. So, go find and play a song that moves you. Learn it, teach it and share it. Make a positive impact on the world around you. Amplify your imagination, creativity and a new love for music. Begin today.
+        </div>
+    </div>
+</div>
+<div class = "piano_latest_users">
+    <div class = "piano_latest_users_title">
+        Latest users
+    </div>
+    <div class = "piano_latest_users_content">
+        {% for user in latest_users %}
+        <div class = "piano_latest_user">
+            <div class = "piano_latest_user_img">
+                {% if user.avatar %}
+                <img src = "{{ url_for('static', filename = '/uploads/images/' + user.avatar ) }}">
+                {% else %}
+                <img src = "{{ url_for('static', filename = '/images/login-icon.jpg') }}">
+                {% endif %}
+            </div>
+            <div class = "piano_latest_user_username">
+                {{ user.username }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+<div class = "piano_quote_wrapper">
+    <div class = "piano_quote">
+        <div class = "piano_quote_content">
+            Where words leave off, music begins.
+        </div>
+        <div class = "piano_quote_author">
+            Heinrich Heine
+        </div>
+        <div class = "piano_quote_profession">
+            POET
+        </div>
+        <div class = "quote">
+            QUOTE
+        </div>
+    </div>
+</div>
+<a href = "/compose_message">asd</a>
+
+<script src = "{{ url_for('static', filename = '/js/index.js') }}"></script>
+
+{% endblock %}
+

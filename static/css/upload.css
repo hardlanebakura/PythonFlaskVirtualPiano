@@ -1,0 +1,27 @@
+.upload_wrapper {
+
+    min-height:694px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.button_profile_pic_1 {
+
+    height: 38px;
+    width: 190px;
+    /* background-color: #005bff; */
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
+.upload_music_1 {
+
+    padding-top:40px;
+    padding-left:70px;
+
+}

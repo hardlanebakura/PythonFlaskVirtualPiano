@@ -1,0 +1,206 @@
+.inbox_wrapper {
+
+    min-height:654px;
+    padding-top:40px;
+
+}
+
+.inbox {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.inbox_compose_message_button button {
+
+    margin-bottom:40px;
+    margin-left:19%;
+    padding:10px;
+    background-color:#000;
+    color:var(--do);
+
+}
+
+.inbox_received_message_button {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.reply_message_button {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    padding:10px;
+    background-color:#000;
+    color:var(--do);
+
+}
+
+.inbox_overview {
+
+    width:31%;
+    margin-top:80px;
+
+}
+
+.inbox_message {
+
+    width:fit-content;
+    padding:10px;
+    display:flex;
+
+}
+
+.inbox_message_overview {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.inbox_message_msg_content {
+
+    margin-top:4px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+.inbox_message_content_title {
+
+    font-size: 24px;
+    font-weight: bold;
+    margin-top:4px;
+    margin-bottom:40px;
+    text-align:center;
+
+}
+
+.inbox_message_content_content {
+
+    text-align:center;
+    line-height: 1.5;
+
+}
+
+.inbox_message_avatar {
+
+    margin-left: 10px;
+    margin-top: -7px;
+
+}
+
+.inbox_message_msg {
+
+    min-width: 280px;
+    cursor:pointer;
+
+}
+
+.inbox_message_sender {
+
+    margin-top:8px;
+    font-weight:bold;
+
+}
+
+ .inbox_received_message_sender_email, .inbox_received_message_receiver_email {
+
+    margin-left:14px;
+    padding-top:8px;
+
+}
+
+.inbox_message_time {
+
+    padding-top:12px;
+    text-align:right;
+
+}
+
+.inbox_message img {
+
+    height:45px;
+    width:45px;
+    margin-top:14px;
+    margin-right:14px;
+
+}
+
+.inbox_message_content_wrapper {
+
+    width:40%;
+
+}
+
+.inbox_received_message {
+
+    margin-top: 137px;
+    display:none;
+
+}
+
+.inbox_received_message_sender {
+
+    padding:10px;
+    background-color:#f3f4f6;
+    display:flex;
+
+}
+
+.inbox_received_message_receiver {
+
+    padding:10px;
+    background-color:#f3f4f6;
+    display:flex;
+
+}
+
+.inbox_received_message_receiver img, .inbox_received_message_sender img {
+
+    height:40px;
+    width:40px;
+
+}
+
+.inbox_received_message_content_wrapper {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.inbox_received_message_content {
+
+    width:100%;
+    margin:14px;
+
+}
+
+.inbox_received_message_content_header {
+
+    margin-top:12px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+}
+
+.inbox_received_message_content_header_datetime {
+
+    text-align:right;
+
+}
+
+.inbox_received_message_content_content {
+
+    margin-top:59px;
+    padding-left:14px;
+
+}
+

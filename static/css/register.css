@@ -1,0 +1,113 @@
+.register {
+
+height:89vh;
+min-height:700px;
+display:flex;
+justify-content:center;
+align-items:center;
+background-color:#fff;
+background-image: linear-gradient(#000, lightgray);
+
+}
+
+.inputwrapper {
+
+height:33px;
+border:2px solid #555;
+border-radius:10px;
+margin-bottom:17px;
+padding-left:15px;
+display:flex;
+
+}
+
+.inputwrapperimg {
+
+height:23px;
+width:23px;
+margin-left:7px;
+padding-top:4px;
+
+}
+
+.loginform1, loginform1:focus {
+
+width:199px;
+padding-left:10px;
+background-color:#fff;
+border:none;
+outline:none;
+
+}
+
+.register_board {
+
+width:300px;
+padding:30px;
+background-color:#fff;
+
+}
+
+.registrationtitle {
+
+color:var(--do);
+padding-left:40%;
+padding-bottom:19px;
+font-size:19px;
+
+}
+
+.register_board1 {
+
+font-weight:bold;
+border-bottom:1px solid lightgray;
+
+}
+
+.reg_button {
+
+height: 38px;
+width: 77px;
+margin-left:32%;
+/* background-color: #005bff; */
+background-color:#000;
+color: var(--do);
+transform: translate(10px, 14px);
+border:1px solid var(--do);
+
+}
+
+.handlepotentialerrors {
+
+height:19px;
+color:red;
+text-align:center;
+display:none;
+
+}
+
+.haveaccountwrapper {
+
+display:flex;
+
+}
+
+.haveaccount {
+
+
+
+}
+
+.haveaccountsologin {
+
+color:var(--do);
+padding-left:7px;
+
+}
+
+.haveaccountsologin a {
+
+    color:inherit;
+    text-decoration:none;
+
+}

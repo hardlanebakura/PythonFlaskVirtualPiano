@@ -1,0 +1,458 @@
+.piano-bg {
+
+    height:400px;
+    background-color:#000;
+    background-image: linear-gradient(#000, lightgray);
+    margin-bottom: 40px;
+
+}
+
+.piano {
+
+    height:700px;
+    padding-top:80px;
+    margin-bottom:40px;
+
+}
+
+.piano_menu_top {
+
+    width:calc(71% + 19px);
+    margin-left:15%;
+    padding:20px 0 20px 0;
+    text-transform:uppercase;
+    background-color:#000;
+    color:#939393;
+    text-align:center;
+
+}
+
+.piano_menu_top_content:hover {
+
+    color:#fff;
+
+}
+
+.piano_menu_top_title {
+
+    padding-bottom:14px;
+    font-size:23px;
+    font-weight:bold;
+    color:var(--do);
+
+}
+
+.piano_menu_bottom {
+
+    width:calc(71% + 19px);
+    margin-left:15%;
+    padding-top:4px;
+    background-color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.piano_menu_bottom_item {
+
+    color:#939393;
+    text-transform:uppercase;
+    margin-inline:10px;
+    cursor:pointer;
+    display:flex;
+
+}
+
+.piano_menu_bottom_item_img img {
+
+    height:24px;
+    width:24px;
+    display:none;
+
+}
+
+.piano_menu_bottom_item_title {
+
+    padding:4px 0 0 4px;
+
+}
+
+.piano_start_wrapper {
+
+    width:fit-content;
+    margin-left:15%;
+    padding:17px;
+    padding-right:22px;
+    background-color:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-bottom-left-radius:14px;
+    border-bottom-right-radius:14px;
+
+}
+
+.piano_start {
+
+    display:flex;
+
+}
+
+.key_1 {
+
+    background-color:#fff;
+    cursor:pointer;
+    font-weight:bold;
+
+}
+
+.key_1_value {
+
+    height:189px;
+    width:35px;
+    font-family:"Helvetica", Arial;
+    border-left: 0.75px solid #707070;
+    border-right: 0.75px solid #707070;
+    border-radius: 2px 2px 0px 0px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.key_1_bottom {
+
+    height:19px;
+    background-color:lightgray;
+    border-bottom-left-radius:43%;
+    border-bottom-right-radius:43%;
+    border-bottom:1px solid #000;
+
+}
+
+.key_2 {
+
+    position:absolute;
+    cursor:pointer;
+
+}
+
+.key_2_value {
+
+    height:115px;
+    width:19px;
+    background-color:darkgray;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.key_2_bottom {
+
+    height:19px;
+    background-color:#000;
+    border-bottom-left-radius:43%;
+    border-bottom-right-radius:43%;
+
+}
+
+.key_1_value:hover {
+
+    background-image:linear-gradient(#fff, lightgray);
+
+}
+
+.key_2_value:hover {
+
+    background-color:#000;
+
+}
+
+.label1 {
+
+padding-top:122px;
+
+}
+
+.piano_hints {
+
+    padding-top:80px;
+    padding-bottom:80px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    /* border-bottom:1px solid var(--do); */
+
+}
+
+.piano_hint {
+
+    width:140px;
+    margin-inline:40px;
+
+}
+
+.piano_hint_img {
+
+   margin-bottom:18px;
+   display:flex;
+   justify-content:center;
+
+}
+
+.piano_hint img {
+
+    height:67px;
+    width:67px;
+    border-radius:50%;
+
+}
+
+.piano_info_wrapper {
+
+    display:flex;
+    justify-content:center;
+
+}
+
+.piano_info {
+
+    width:610px;
+    text-align:center;
+
+}
+
+.piano_info_title {
+
+    margin-bottom:14px;
+    font-size:45px;
+    font-weight:bold;
+
+}
+
+.piano_info_title_1 {
+
+    color:var(--do);
+    font-size:29px;
+    font-weight:bold;
+    margin-bottom: 14px;
+    padding-top: 15px;
+    padding-bottom:40px;
+
+}
+
+.piano_info_content {
+
+    display:flex;
+
+}
+
+.piano_info_content_column {
+
+    width:290px;
+    margin-inline:18px;
+    margin-bottom:40px;
+
+}
+
+.piano_info_content_title {
+
+    padding-bottom:14px;
+    font-size:18px;
+    font-weight:bold;
+
+}
+
+.piano_info_content_title_1 {
+
+    margin-bottom:40px;
+    font-size: 13px;
+    font-weight: 700;
+    font-style:italic;
+    letter-spacing: .5px;
+    color: #919191;
+    line-height: 1.9;
+
+}
+
+.piano_info_content_content {
+
+
+
+}
+
+.piano_info_content_content::first-letter {
+
+    margin-top:40px;
+    font-size:70px;
+    padding:14px;
+    padding-right:4px;
+    font-weight:bold;
+
+}
+
+.span1 {
+
+    color:#000;
+    font-weight:bold;
+
+}
+
+.span2 {
+
+    color:#000;
+
+}
+
+.span3 {
+
+    color:var(--do);
+    font-weight:bold;
+
+}
+
+.piano_quote_wrapper {
+
+    margin-bottom:40px;
+    background-color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.piano_quote {
+
+    min-width:37%;
+    margin:40px;
+    padding:14px;
+    text-align:center;
+    border: 8px solid #e6e6e6;
+
+}
+
+.piano_quote_content {
+
+    color:#000;
+    margin-bottom:14px;
+    font-style:italic;
+    font-size: 24px;
+    font-weight: 300;
+    font-family: PlayfairDisplay;
+
+}
+
+.piano_quote_author {
+
+    line-height:1.4;
+    color: #919191!important;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 5px;
+
+}
+
+.piano_quote_profession {
+
+    color: #919191;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 10px;
+
+}
+
+.quote {
+
+    width: fit-content;
+    margin-left: calc(43% + 7px);
+    padding-inline: 10px;
+    transform: translateY(29px);
+    background-color: #fff;
+
+}
+
+.piano_most_active_users {
+
+    margin-right:70px;
+
+}
+
+.piano_most_active_users_title, .piano_latest_users_title {
+
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:40px;
+
+}
+
+.most_active_user, .piano_latest_user {
+
+    margin-bottom:17px;
+
+}
+
+.most_active_user_info {
+
+    display:flex;
+    margin-bottom:12px;
+
+}
+
+.most_active_user_info img {
+
+    height:40px;
+    width:40px;
+
+}
+
+.most_active_user_info_username {
+
+    padding-top:7px;
+    padding-left:7px;
+
+}
+
+.piano_latest_users {
+
+    margin-left:140px;
+
+}
+
+.piano_latest_user {
+
+    display:flex;
+
+}
+
+.piano_latest_user img {
+
+    height:40px;
+    width:40px;
+
+}
+
+.piano_latest_user_username {
+
+    padding-top:7px;
+    padding-left:7px;
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .quote {
+
+        margin-left: calc(42% + 1px);
+
+    }
+
+}
+
+
+
+
+

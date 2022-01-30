@@ -1,0 +1,172 @@
+.loginwrapper {
+
+height:89vh;
+min-height:700px;
+display:flex;
+justify-content:center;
+align-items:center;
+background-color:#fff;
+background-image: linear-gradient(#000, lightgray);
+
+}
+
+.login {
+
+height:458px;
+width:300px;
+background:#fff;
+border:2px solid var(--do);
+border-radius:10px;
+/* border:1px solid #0396fd; */
+
+
+}
+
+.loginheader {
+
+font-size: 18px;
+/* color: #26428b; */
+color: var(--do);
+line-height: 18px;
+text-align:center;
+padding-top: 12px;
+padding-bottom: -14px;
+/* border-bottom:1px solid #26428b; */
+border-bottom:2px solid var(--do);
+
+}
+
+.loginheader img {
+
+height:107px;
+width:268px;
+
+
+}
+
+.logininputs {
+
+margin:14px;
+font-size: 14px;
+line-height: 1.42857143;
+
+
+}
+
+.handlepotentialerrors {
+
+height:42px;
+color:red;
+text-align:center;
+
+}
+
+.loginbuttonwrapper {
+
+/*background-image:url("../images/bankloginicon1.png");
+background-size:cover;*/
+
+
+}
+
+.loginadditional {
+
+margin-top:4px;
+text-align:center;
+
+}
+
+.recovery {
+
+margin:14px;
+font-size: 13px;
+line-height: 1.42857143;
+
+}
+
+.linktoregister {
+
+margin:14px;
+font-size: 13px;
+line-height: 1.42857143;
+color: #0396fd;
+margin-top: -7px;
+
+}
+
+.conditions {
+
+margin:14px;
+font-size: 13px;
+line-height: 1.42857143;
+margin-top: -7px;
+
+}
+
+.login a {
+
+/* color: #0396fd; */
+color: var(--do);
+text-decoration: none;
+
+}
+
+.inputwrapper {
+
+height:33px;
+border:2px solid #555;
+border-radius:10px;
+margin-bottom:17px;
+padding-left:15px;
+display:flex;
+
+}
+
+.inputwrapperimg {
+
+height:23px;
+width:23px;
+margin-left:7px;
+padding-top:4px;
+
+}
+
+.loginform1, loginform1:focus {
+
+width:199px;
+padding-left:10px;
+border:none;
+outline:none;
+
+}
+
+.loginbutton {
+
+height:40px;
+width:260px;
+margin-left:22px;
+margin-top:4px;
+margin-bottom:19px;
+/* background-color:#0396fd; */
+background-color:#000;
+color:var(--do);
+border:2px solid var(--do);
+border-radius:10px;
+text-transform: uppercase;
+font-size: 12px;
+font-weight: 800;
+border-radius: 20px;
+text-shadow: 0 0 15px #ff8300;
+padding: 9px 16px 7px;
+line-height: 20px;
+min-width: 150px;
+text-align: center;
+font-family: Spartan;
+letter-spacing: .8px;
+cursor: pointer;
+background: #000;
+transition: .25s;
+min-height: auto;
+max-width: 260px;
+
+}

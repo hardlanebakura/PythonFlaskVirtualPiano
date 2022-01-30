@@ -1,0 +1,570 @@
+.music_sheets_wrapper {
+
+    padding:4%;
+    color:#fff;
+    text-align:center;
+    background-position: center 27.7969px;
+    background-image: url(https://virtualpiano.net/wp-content/uploads/2021/06/Virtual-Piano-Music-Sheets-Library-bright-800px.png);
+    background-size:cover;
+
+}
+
+.music_sheets_info {
+
+
+
+}
+
+.music_sheets_title {
+
+    color:var(--do);
+    margin-bottom:14px;
+    font-weight:bold;
+    font-size: 35px;
+    letter-spacing: 2px;
+
+}
+
+.music_sheets_title_1 {
+
+    margin-bottom:14px;
+    font-family: playfair display,serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.4;
+    font-style: italic;
+
+}
+
+.music_sheets_title_1_content {
+
+    margin-bottom:18px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 28px;
+    letter-spacing: 1.6px;
+
+}
+
+.music_sheets_find_categories {
+
+    background: rgba(32, 39, 47, 0.3);
+    margin-bottom:14px;
+    padding:10px 0px;
+
+}
+
+.music_sheets_find_categories_title {
+
+    padding: 18px 10px 12px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-size: 19px;
+    font-weight: 300;
+    font-family: PlayfairDisplay;
+    font-style:italic;
+
+}
+
+.music_sheets_find_categories_title_1 {
+
+    font-size: 30px;
+    font-weight:bold;
+    letter-spacing: 1px;
+    line-height: 1.4;
+
+}
+
+.music_sheets_discover_more {
+
+}
+
+.music_sheets_discover_more_title {
+
+    color: #d0c6d8;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 28px;
+    letter-spacing: 1.6px;
+
+}
+
+.music_sheets_discover_more_genres {
+
+    margin-top:4%;
+
+}
+
+.music_sheets_discover_more_genre {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.music_sheets_discover_more_genre a {
+
+    color:inherit;
+    text-decoration:none;
+
+}
+
+.music_sheets_discover_more_genre_title {
+
+    padding: 18px 10px 12px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: PlayfairDisplay;
+    font-style: italic;
+
+}
+
+.music_sheets_discover_more_genre_items {
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+
+}
+
+.music_sheets_discover_more_genre_item {
+
+    margin-bottom:17px;
+    margin-inline:10px;
+
+}
+
+.genre_image {
+
+    max-width:120px;
+    overflow:hidden;
+    margin-left: 28px;
+
+}
+
+.genre_image img {
+
+    height:90px;
+    width:120px;
+    transition:transform 0.4s ease;
+    transform-origin:50% 50%;
+    margin-left:19px;
+
+}
+
+.handlepotentialerrors {
+
+    height: 19px;
+    color: red;
+    text-align: center;
+
+}
+
+.compose_message_textarea {
+
+    margin-top:12px;
+    margin-bottom:14px;
+    display:grid;
+
+}
+
+.genre_image img:hover {
+
+    transform: scale(1.2);
+
+
+}
+
+.genre_name {
+
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    margin-left:43px;
+
+}
+
+.theme_name {
+
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    transform:translateX(22px);
+
+}
+
+
+.genre1 {
+
+    transform:translateX(43px);
+
+}
+
+.genre2 {
+
+    transform:translateX(93px);
+
+}
+
+.genre3 {
+
+    transform:translateX(143px);
+
+}
+
+.theme1 {
+
+    transform:translateX(43px);
+
+}
+
+.theme2 {
+
+    transform:translateX(91px);
+
+}
+
+.theme3 {
+
+    transform:translateX(141px);
+
+}
+
+.artists {
+
+    margin-left:188px;
+
+}
+
+.artist_name {
+
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+
+}
+
+.music_sheets_content_wrapper {
+
+    text-align:center;
+
+}
+
+.music_sheets_lists {
+
+    min-height:400px;
+
+
+}
+
+.music_sheets_lists_browse {
+
+
+
+}
+
+.music_sheets_lists_browse_1 {
+
+    text-align: center;
+    background: #ededf2;
+
+}
+
+.music_sheets_lists_browse_1_title {
+
+    padding-top:14px;
+    font-style:italic;
+    font-size: 16px;
+    font-weight: 300;
+
+}
+
+.music_sheets_lists_browse_1_content {
+
+    margin-bottom: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    padding: 18px 10px 12px;
+
+}
+
+.music_sheets_lists_browse_2 {
+
+    padding-top:14px;
+    display:flex;
+    justify-content:center;
+
+}
+
+.music_sheets_lists_browse_2 img {
+
+    height:40px;
+    width:40px;
+
+}
+
+.music_sheets_lists_browse_2_music_sheets {
+
+    margin-right:70px;
+
+}
+
+.music_sheets_lists_browse_2_music_sheets_title, .music_sheets_lists_browse_2_artists_title, .music_sheets_request_title, .music_sheets_submit_title {
+
+    font-style:italic;
+    margin-top:7px;
+    margin-bottom:43px;
+
+}
+
+.music_sheets_row {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:10px;
+
+}
+
+.edit_genres {
+
+    min-height:614px;
+    padding-top:80px;
+
+}
+
+.edit_sheet_content {
+
+    margin-left:30%;
+
+}
+
+.edit_sheet_textarea {
+
+    min-height:120px;
+    min-width:740px;
+
+}
+
+.music_sheets_element_button {
+
+    width:33px;
+    margin-inline:4px;
+    padding:7px;
+    font-weight:bold;
+    font-size:17px;
+    cursor:pointer;
+
+}
+
+.music_sheets_request_content_1 {
+
+    margin-bottom:17px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.music_sheets_request_content_1 img {
+
+    height:40px;
+    width:40px;
+    margin-right: 14px;
+
+}
+
+.button_profile_pic_1, .edit_sheet_button {
+
+    height: 38px;
+    width: 190px;
+    /* background-color: #005bff; */
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
+.compose_message_wrapper {
+
+    min-height:694px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.music_sheets_comment {
+
+    text-align:left;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.music_sheets_comments {
+
+    margin-bottom:40px;
+
+}
+
+.music_sheets_comments_title {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    font-size:19px;
+    font-weight:bold;
+
+}
+
+.music_sheets_comments img {
+
+    height:40px;
+    width:40px;
+
+}
+
+.music_sheets_request {
+
+    margin-left: 14%;
+    margin-right: 7%;
+
+}
+
+.music_sheets_comment {
+
+    width:fit-content;
+    margin-top:14px;
+    margin-bottom:14px;
+
+}
+
+.music_sheets_comment_content {
+
+    margin-inline:10px;
+
+}
+
+.music_sheets_comment_content_username {
+
+    color: #385898;
+    font-weight:bold;
+
+}
+
+.music_sheets_submit {
+
+    width:40%;
+
+}
+
+.music_sheets_submit_content_title {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    font-size:19px;
+    font-weight:bold;
+
+}
+
+.music_sheets_upload {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    color:var(--do);
+
+}
+
+.music_sheets_upload a {
+
+    color:inherit;
+    text-decoration:none;
+
+}
+
+.music_sheets_upload_1 {
+
+    font-weight:bold;
+
+}
+
+.genre {
+
+    min-height:654px;
+    text-align:center;
+
+}
+
+.genre_title {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    font-size:17px;
+
+}
+
+.music_sheet_sheet {
+
+    min-height:594px;
+    text-align:center;
+
+}
+
+.music_sheet_sheet_title {
+
+    margin-top:100px;
+    margin-bottom:70px;
+
+}
+
+.music_sheet_sheet_author {
+
+    padding-bottom:70px;
+
+}
+
+.music_sheet_sheet textarea {
+
+    height:171px;
+    width:400px;
+
+}
+
+.music_sheet_for_genre_title {
+
+    color:var(--do);
+
+}
+
+.music_sheet_for_genre_title a {
+
+    color:inherit;
+    text-decoration:none;
+
+}
+
+.latest_music_title {
+
+    margin-top:14px;
+    margin-bottom:14px;
+    font-size:17px;
+    font-weight:bold;
+
+}
+
+.music_sheets_link {
+
+    color:inherit;
+    text-decoration:none;
+
+}

@@ -1,0 +1,601 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+    <title>Virtual Piano</title>
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "music_sheets_wrapper">
+    <div class = "music_sheets_info">
+        <div class = "music_sheets_title">
+            MUSIC SHEETS
+        </div>
+        <div class = "music_sheets_title_1">
+            Discover your favourite songs in the world's largest library of virtual piano music sheets.
+        </div>
+        <div class = "music_sheets_title_1_content">
+            Select from thousands of free virtual piano music sheets and play them from any device. Choose songs from more than 25 main music sheet categories and 140 music sheet tags. Play the piano in less than a minute using the unique Virtual Piano music sheet notation that anyone can play right away!
+        </div>
+        <div class = "music_sheets_find_categories">
+            <div class = "music_sheets_find_categories_title">
+                Find Music Sheets By
+            </div>
+            <div class = "music_sheets_find_categories_title_1">
+                Popular Categories
+            </div>
+        </div>
+        <div class = "music_sheets_discover_more">
+            <div class = "music_sheets_discover_more_title">
+                Discover the best songs to play in the world's largest library of verified virtual piano music sheets, updated daily on Virtual Piano.
+            </div>
+            <div class = "music_sheets_discover_more_genres">
+                <div class = "music_sheets_discover_more_genre">
+                <div class = "music_sheets_discover_more_genre_title">
+                    <a href = "/music/sheets">
+                        Genres
+                    </a>
+                </div>
+                <div class = "music_sheets_discover_more_genre_items">
+                    <div class = "music_sheets_discover_more_genre_item">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Best-Christmas-Songs-Piano-Music-Virtual-Piano-300x300.jpg">
+                        </div>
+                        <div class = "genre_name">
+                            POP
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item genre1">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Rock-Music-Piano-Songs-Virtual-Piano-300x300.jpg">
+                        </div>
+                        <div class = "genre_name">
+                            ROCK
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item genre2">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Electronic-Dance-Music-Piano-Sheets-Virtual-PIano-300x300.jpg">
+                        </div>
+                        <div class = "genre_name">
+                            DANCE
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item genre3">
+                        <a class = "genre_link" href = "/music/genres/CLASSICAL">
+                            <div class = "genre_image">
+                                <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Classical-Piano-Music-Virtual-Piano-300x300.jpg">
+                            </div>
+                            <div class = "genre_name">
+                                    CLASSICAL
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class = "music_sheets_discover_more_genre">
+                <div class = "music_sheets_discover_more_genre_title">
+                    Themes
+                </div>
+                <div class = "music_sheets_discover_more_genre_items">
+                    <div class = "music_sheets_discover_more_genre_item">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Piano-Songs-From-TV-Shows-Virtual-Piano-300x300.jpg">
+                        </div>
+                        <div class = "theme_name">
+                            SONGS FROM TV
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item theme1">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Best-Christmas-Songs-Piano-Music-Virtual-Piano-300x300.jpg">
+                        </div>
+                        <div class = "theme_name">
+                            CHRISTMAS SONGS
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item theme2">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Best-Christmas-Songs-Piano-Music-Virtual-Piano-300x300.jpg">
+                        </div>
+                        <div class = "theme_name">
+                            SONGS FROM MOVIES
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item theme3">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Games-Piano-Music-Virtual-Piano-300x300.jpg">
+                        </div>
+                        <div class = "theme_name">
+                            SONGS FROM GAMES
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class = "music_sheets_discover_more_genre artists">
+                <div class = "music_sheets_discover_more_genre_title">
+                    Artists
+                </div>
+                <div class = "music_sheets_discover_more_genre_items">
+                    <div class = "music_sheets_discover_more_genre_item">
+                        <a class = "genre_link">
+                        <div class = "genre_image" style = "margin-left: 32px;">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/08/Ludwig-van-Beethoven-Artist-Online-Piano-Keyboard-Virtual-Piano-150x150.jpg">
+                        </div>
+                        <div class = "artist_name" style = "margin-left:4px;">
+                            LUDWIG VAN BEETHOVEN
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/06/Hans-Zimmer-Top-Artist-on-Virtual-Piano-Play-Piano-Online-150x150.jpg">
+                        </div>
+                        <div class = "artist_name">
+                            HANS ZIMMER
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://images.universal-music.de/img/assets/506/506129/992/720/ludovico-einaudi.jpg">
+                        </div>
+                        <div class = "artist_name">
+                            LUDOVICO EINAUDI
+                        </div>
+                        </a>
+                    </div>
+                    <div class = "music_sheets_discover_more_genre_item">
+                        <a class = "genre_link">
+                        <div class = "genre_image">
+                            <img src = "https://virtualpiano.net/wp-content/uploads/2020/07/Wolfgang-Amadeus-Mozart-Classical-Music-Composer-Virtual-Piano-150x150.jpg">
+                        </div>
+                        <div class = "artist_name">
+                            WOLFGANG AMADEUS MOZART
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class = "music_sheets_lists">
+    <div class = "music_sheets_lists_browse">
+        <div class = "music_sheets_lists_browse_1">
+            <div class = "music_sheets_lists_browse_1_title">
+                Browse Music Sheets And Artists Through An Easy
+            </div>
+            <div class = "music_sheets_lists_browse_1_content" id = "azlisting">
+                A-Z Listing
+            </div>
+        </div>
+        <div class = "music_sheets_lists_browse_2">
+            <div class = "music_sheets_lists_browse_2_music_sheets">
+                <div class = "music_sheets_lists_browse_2_music_sheets_title">
+                    Music Sheets
+                </div>
+                <div class = "music_sheets_lists_browse_2_music_sheets_content">
+                    <div class = "music_sheets_row">
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                A
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                B
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                C
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                D
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                E
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                F
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                G
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                H
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                I
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                J
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                K
+                            </a>
+                        </button>
+                    </div>
+                    <div class = "music_sheets_row">
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                L
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                M
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                N
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                O
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                P
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                Q
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                R
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                S
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                T
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                U
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                V
+                            </a>
+                        </button>
+                    </div>
+                    <div class = "music_sheets_row">
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                W
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                X
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                Y
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                Z
+                            </a>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class = "music_sheets_lists_browse_2_artists">
+                <div class = "music_sheets_lists_browse_2_artists_title">
+                    Artists
+                </div>
+                <div class = "music_sheets_lists_browse_2_artists_content">
+                    <div class = "music_sheets_row">
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets?letter=A">
+                                A
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                B
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                C
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                D
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                E
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                F
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                G
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                H
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                I
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                J
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                K
+                            </a>
+                        </button>
+                    </div>
+                    <div class = "music_sheets_row">
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                L
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                M
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                N
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                O
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                P
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                Q
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                R
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                S
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                T
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                U
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                V
+                            </a>
+                        </button>
+                    </div>
+                    <div class = "music_sheets_row">
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                W
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                X
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                Y
+                            </a>
+                        </button>
+                        <button class = "music_sheets_element_button">
+                            <a class = "music_sheets_link" href = "music/sheets">
+                                Z
+                            </a>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "music_sheets_lists_1">
+
+    </div>
+</div>
+
+<div class = "music_sheets_lists_browse_1">
+    <div class = "music_sheets_lists_browse_1_title">
+        Song Not In Virtual Piano Library?
+    </div>
+    <div class = "music_sheets_lists_browse_1_content">
+        Request / Submit A Music Sheet
+    </div>
+</div>
+
+<div class = "music_sheets_lists_browse_2">
+    <div class = "music_sheets_request">
+        <div class = "music_sheets_request_title">
+            Request a song
+        </div>
+        <div class = "music_sheets_request_content">
+            {% if not loggedinuser %}
+                You must be logged in to request a song.
+            {% else %}
+                <form method = "POST">
+                    <div class = "music_sheets_request_content_1">
+                        {% if avatar %}
+                        <img src = "{{ url_for('static', filename = '/uploads/images/' + avatar ) }}">
+                        {% endif %}
+                        <textarea name = "song_request">
+                        </textarea>
+                    </div>
+                    <button name = "submit" value = "POST SONG REQUEST" class = "button_profile_pic_1" type = "submit">
+                    POST SONG REQUEST
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+        <div class = "music_sheets_comments">
+            <div class = "music_sheets_comments_title">
+                Latest comments
+            </div>
+            {% for comment in comments %}
+            <div class = "music_sheets_comment">
+                <div class = "music_sheets_comment_avatar">
+                    {% if comment.avatar %}
+                    <img src = "{{ url_for('static', filename = '/uploads/images/' + comment.avatar ) }}">
+                    {% else %}
+                    <img src = "{{ url_for('static', filename = '/images/login-icon.jpg') }}">
+                    {% endif %}
+                </div>
+                    <div class = "music_sheets_comment_content">
+                        <div class = "music_sheets_comment_content_username">
+                            {{ comment.author }}
+                        </div>
+                        <div class = "music_sheets_comment_content_content">
+                            {{ comment.content }}
+                        </div>
+                    </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+    <div class = "music_sheets_submit">
+        <div class = "music_sheets_submit_title">
+            Submit a Music Sheet
+        </div>
+        <div class = "music_sheets_submit_content">
+            When you create great music using Virtual Piano, please share it with us. We will feature it in our highlights and share it with our global community of keen listeners.
+            The below button opens a Google Form. You will need to log in to your Google Account to upload your Sound/Video file to our Google Cloud.
+        </div>
+        <div class = "music_sheets_submit_content_title">
+            Latest sheets
+        </div>
+        <div class = "music_sheets_submit_content_latest_music">
+            {% for sheet in latest_music %}
+            <div class = "latest_music_title">
+            <a class = "music_link" href = "/music/sheets/{{ sheet.id }}">
+                {{ sheet.title.split(".")[0] }}
+            </a>
+            </div>
+            <div class = "latest_music_user">
+            by {{ sheet.author }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class = "music_sheets_upload">
+            {% if loggedinuser %}
+                <div class = "music_sheets_upload_1">
+                    <a href = "/upload">
+                        Upload a sheet
+                    </a>
+                </div>
+            {% else %}
+            <a href = "/login">You must be logged in to upload a music sheet.</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class = "music_sheets_found_music">
+    1
+</div>
+
+    <script src = "{{ url_for('static', filename = '/js/music.js') }}"></script>
+    <script>
+        var headerMenuItems = document.getElementsByClassName("header_menu_item");
+        var activeItem = document.getElementsByClassName("active")[0];
+        activeItem.classList.remove("active");
+        headerMenuItems[1].classList.add("active");
+    </script>
+
+{% endblock %}
+

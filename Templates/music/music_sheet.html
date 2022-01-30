@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Music Sheet</title>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class = "music_sheet_sheet">
+        <div class = "music_sheet_sheet_title">
+            {{ music_sheet.title.split(".")[0] }}
+        </div>
+        <div class = "music_sheet_sheet_content">
+            <div class = "music_sheet_sheet_author">
+                By {{ music_sheet.author }}
+            </div>
+            <textarea>
+                {{ music_sheet.content }}
+            </textarea>
+        </div>
+    </div>
+
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Edit Genres</title>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class = "edit_genres">
+        <form method = "POST">
+            <div class = "edit_sheet_content">
+                <textarea class = "edit_sheet_textarea">
+                    {{ sheet.content }}
+                </textarea>
+            </div>
+            <button type = "submit" class = "edit_sheet_button" value = "EDIT_SHEET" style="margin-left:43%; margin-top:17px;">
+                EDIT SHEET
+            </button>
+        </form>
+    </div>
+
+{% endblock %}
+

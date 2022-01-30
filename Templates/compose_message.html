@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Compose Message</title>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "compose_message_wrapper">
+    <form method = "POST">
+        <div class = "compose_message">
+            <div class = "compose_message_input">
+                Recipient: <input name = "compose_message" value = "{{ recipient }}">
+            </div>
+            <div class = "compose_message_textarea">
+                <textarea name = "message_content"></textarea>
+            </div>
+            {% for error in errors %}
+            <div class = "handlepotentialerrors">
+                {{ error }}
+            </div>
+            {% endfor %}
+            <button name = 'submit' class = "compose_message_button" value = "COMPOSE_MESSAGE" type = "submit">
+                COMPOSE MESSAGE
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

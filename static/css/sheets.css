@@ -1,0 +1,22 @@
+.sheets {
+
+    min-height:654px;
+    text-align:center;
+
+}
+
+.sheets_title {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    font-size:24px;
+    font-weight:bold;
+
+}
+
+.sheets_title_letter {
+
+    font-size:17px;
+    margin-bottom:14px;
+
+}

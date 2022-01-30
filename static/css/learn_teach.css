@@ -1,0 +1,63 @@
+.learn_teach_wrapper {
+
+    min-height:654px;
+
+}
+
+.learn_teach {
+
+    margin-top:40px;
+    margin-bottom:40px;
+    text-align:center;
+
+}
+
+.learn_teach_button {
+
+    height: 38px;
+    width: 190px;
+    margin-top:12px;
+    margin-left:45%;
+    /* background-color: #005bff; */
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
+.learn_teach_requests {
+
+    margin-top:40px;
+
+}
+
+.learn_teach_1 {
+
+
+
+}
+
+.learn_teach_requests_message {
+
+    margin-top:14px;
+    margin-bottom:14px;
+
+}
+
+.learn_teach_requests_message a {
+
+    color:var(--do);
+    text-decoration:none;
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .learn_teach_button {
+
+        margin-left:43%;
+
+    }
+
+}
