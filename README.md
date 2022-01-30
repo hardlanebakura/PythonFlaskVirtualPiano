@@ -1,6 +1,6 @@
 #VirtualPiano project
 
-This project is a virtual piano website with options to upload your sheet,
+This project is a virtual piano website with options to play the piano, upload your music sheet, message other users, or let others know you are interested in learning/teaching.
 
 ## Special features
 
