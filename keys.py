@@ -3,7 +3,7 @@ from os.path import isfile, join
 from log_config import logging
 from config import PATH_TO_THIS_PROJECT
 
-files = [f for f in listdir("{}".format(PATH_TO_THIS_PROJECT) + "PythonFlaskVirtualPiano\\static\\keys_mp3") if isfile(join("{}".format(PATH_TO_THIS_PROJECT) + "PythonFlaskVirtualPiano\\static\\keys_mp3", f))]
+files = [f for f in listdir("{}".format("C:\\Users\dESKTOP I5\PycharmProjects\\") + "PythonFlaskVirtualPiano\\static\\keys_mp3") if isfile(join("{}".format("C:\\Users\dESKTOP I5\PycharmProjects\\") + "PythonFlaskVirtualPiano\\static\\keys_mp3", f))]
 #this file configures the keys
 
 keys = {}
