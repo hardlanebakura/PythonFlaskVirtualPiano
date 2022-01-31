@@ -31,6 +31,7 @@ for (let i = 0; i < pianoMenuItem.length; i++) {
 }
 
 console.log(keyboardNotes);
+console.log(keyboardSounds);
 document.addEventListener("keydown", event => {
 
     note = keyboardNotes[event.key];
