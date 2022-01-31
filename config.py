@@ -14,7 +14,7 @@ def set_config(dict, env):
     env.auto_reload = True
     env.cache = {}
 
-PATH_TO_THIS_PROJECT = "C:\\Users\dESKTOP I5\PycharmProjects\\"
+
 
 
 
