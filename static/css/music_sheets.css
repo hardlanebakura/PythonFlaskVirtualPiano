@@ -540,6 +540,12 @@
 
 }
 
+.music_sheet_for_genre {
+
+    margin-bottom:40px;
+
+}
+
 .music_sheet_for_genre_title {
 
     color:var(--do);
