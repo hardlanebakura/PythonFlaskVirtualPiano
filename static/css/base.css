@@ -239,6 +239,19 @@ body {
 
 }
 
+.load_sheet_button {
+
+    height: 38px;
+    width: 190px;
+    margin-top:40px;
+    /* background-color: #005bff; */
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
 .compose_message_button {
 
     height: 38px;

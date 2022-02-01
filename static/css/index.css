@@ -416,6 +416,35 @@ padding-top:122px;
 
 }
 
+.loaded_sheet_wrapper {
+
+    min-height:140px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.loaded_sheet {
+
+
+
+}
+
+.loaded_sheet_title {
+
+    margin-top: 17%;
+    margin-bottom: 19%;
+    text-align:center;
+
+}
+
+.loaded_sheet_content {
+
+
+
+}
+
 .piano_latest_users {
 
     margin-left:140px;

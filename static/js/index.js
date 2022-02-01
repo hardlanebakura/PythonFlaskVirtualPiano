@@ -2,6 +2,7 @@ var keysToMove = document.getElementsByClassName("key_2");
 var keys = document.getElementsByClassName("key_1");
 var distances = [28, 65, 139, 175, 212, 287, 324, 398, 434, 471, 546, 583, 657, 694, 732, 805, 842, 915, 953, 990, 1064, 1101, 1174, 1212, 1249];
 var pianoMenuItem = document.getElementsByClassName("piano_menu_bottom_item");
+var loadedSheetContent = document.getElementsByClassName("loaded_sheet_content")[0];
 var headerMenuImages = document.getElementsByClassName("menu_item_img");
 var headerMenuTitles = document.getElementsByClassName("piano_menu_bottom_item_title");
 
@@ -48,3 +49,18 @@ document.addEventListener("keydown", event => {
     }
 
 })
+
+function editMusicSheet(sheet) {
+
+    console.log(musicSheet[musicSheet.length - 1]);
+    musicSheet = musicSheet.substr(2, musicSheet.length - 3);
+    musicSheet = musicSheet.replace(/\\r\\n/g, "<br>");
+    return musicSheet;
+
+}
+
+if (!(typeof(musicSheet) == 'undefined')) {
+    console.log(loadedSheetContent);
+    loadedSheetContent.innerHTML = editMusicSheet(musicSheet);
+}
+

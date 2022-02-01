@@ -5,6 +5,12 @@
 <title>Music Sheet</title>
 <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
 
+<script>
+
+    var musicSheet = {{ music_sheet.content|string|tojson }}
+
+</script>
+
 {% endblock %}
 
 {% block body %}
@@ -17,11 +23,20 @@
             <div class = "music_sheet_sheet_author">
                 By {{ music_sheet.author }}
             </div>
-            <textarea>
+            <div class = "music_sheet_content_content">
                 {{ music_sheet.content }}
-            </textarea>
+            </div>
+        </div>
+        <div class = "music_sheet_load">
+            <a href = "/?loaded_sheet={{ music_sheet.title.split('.')[0] }}">
+                <button class = "load_sheet_button">
+                    LOAD SHEET INTO PIANO PLAYER
+                </button>
+            </a>
         </div>
     </div>
+
+<script src = "{{ url_for('static', filename = 'js/sheet.js') }}"></script>
 
 {% endblock %}
 

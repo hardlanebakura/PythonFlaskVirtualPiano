@@ -7,11 +7,11 @@
     <script>
         var keyboardNotes = {{ keyboard_notes|tojson }}
         var keyboardSounds = {{ keyboard_sounds|tojson }}
+        var musicSheet = {{ loaded_sheet.content|string|tojson }}
     </script>
 {% endblock %}
 
 {% block body %}
-{{ keyboard_notes["a"] }}
 
 <div class = "piano-bg">
 
@@ -625,6 +625,20 @@
 </div>
 
 </div>
+
+{% if loaded_sheet %}
+<div class = "loaded_sheet_wrapper">
+    <div class = "loaded_sheet">
+        <div class = "loaded_sheet_title">
+            {{ loaded_sheet.title.split(".")[0] }}
+        </div>
+
+        <div class = "loaded_sheet_content">
+
+        </div>
+    </div>
+</div>
+{% endif %}
 <div class = "piano_hints" id = "piano_hints">
     <div class = "piano_hint">
         <div class = "piano_hint_img">
