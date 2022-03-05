@@ -10,6 +10,6 @@ Login with these special credential
 
 in order to test special features (delete or edit user sheets as well as take a look at the user API)
 
-Hosted app on Heroku:
+Hosted app on Heroku: http://pythonflaskvirtualpiano.herokuapp.com/
 
 Happy browsing and thank you for visiting!

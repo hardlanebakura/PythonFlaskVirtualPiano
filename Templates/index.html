@@ -23,6 +23,19 @@
         <div class = "piano_menu_top_content">
             Use your computer keyboard to play your chosen song
         </div>
+        <div class = "piano_menu_top_content_keys">
+            <div class = "piano_menu_top_content_keys_most_recent_key">
+                <div class = "piano_menu_top_content_keys_most_recent_key_top">
+                    1
+                </div>
+                <div class = "piano_menu_top_content_keys_most_recent_key_bottom">
+                    1
+                </div>
+            </div>
+            <div class = "piano_menu_top_content_keys_all_keys">
+
+            </div>
+        </div>
     </div>
     <div class = "piano_menu_bottom">
         <div class = "piano_menu_bottom_item">
@@ -49,9 +62,12 @@
                 Metronome
             </div>
         </div>
+
         <div class = "piano_menu_bottom_item">
+            <div class = "piano_menu_bottom_item_img_wrapper">
             <div class = "piano_menu_bottom_item_img">
                 <img class = "menu_item_img" src = "{{ url_for('static', filename = '/images/virtual-piano-image-record.jpg') }}">
+            </div>
             </div>
             <div class = "piano_menu_bottom_item_title">
                 Sound
@@ -637,6 +653,11 @@
 
         </div>
     </div>
+</div>
+<div class = "autoplay_loaded_sheet">
+    <button class = "autoplay_loaded_sheet_button">
+        AUTOPLAY LOADED SHEET
+    </button>
 </div>
 {% endif %}
 <div class = "piano_hints" id = "piano_hints">

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Music Sheets By Letter</title>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/sheets.css') }}">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+    <div class = "sheets">
+        <div class = "sheets_title">
+            Music Sheets
+        </div>
+        {% if letter %}
+        <div class = "sheets_title_letter">
+                Artists that start with letter {{ letter }}
+        </div>
+        {% endif %}
+        {% if music_artists|length > 0 %}
+        {% for artist in music_artists %}
+            <div class = "music_sheet_for_genre_title" style = "margin-bottom:14px;">
+                <a href = "/music/artists/{{ artist }}">
+                    {{ artist }} <br>
+                </a>
+            </div>
+        {% endfor %}
+        {% else %}
+        There are no artists for this letter
+        {% endif %}
+    </div>
+
+{% endblock %}
+

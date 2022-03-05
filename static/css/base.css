@@ -239,6 +239,19 @@ body {
 
 }
 
+.autoplay_loaded_sheet_button {
+
+    height: 38px;
+    width: 190px;
+    margin-top:4%;
+    margin-left:45%;
+    background-color:#000;
+    color: var(--do);
+    border:1px solid var(--do);
+    cursor:pointer;
+
+}
+
 .load_sheet_button {
 
     height: 38px;
@@ -296,6 +309,12 @@ body {
     .quote {
 
         margin-left: calc(43% + 3px);
+
+    }
+
+    .autoplay_loaded_sheet_button {
+
+        margin-left: calc(43% + 10px);
 
     }
 

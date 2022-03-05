@@ -17,7 +17,10 @@
 
     <div class = "music_sheet_sheet">
         <div class = "music_sheet_sheet_title">
-            {{ music_sheet.title.split(".")[0] }}
+            {{ music_sheet.title.split(".")[0] }} <br>
+            {% if music_sheet.artist %}
+                by {{ music_sheet.artist }}
+            {% endif %}
         </div>
         <div class = "music_sheet_sheet_content">
             <div class = "music_sheet_sheet_author">

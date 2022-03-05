@@ -9,12 +9,15 @@ from flask_cors import CORS, cross_origin
 import os
 from operator import itemgetter
 from admins import ADMINS
+import time
 
 app = Flask(__name__, template_folder = "Templates")
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 set_config(app.config, app.jinja_env)
+
+start_time = time.time()
 
 db = SQLAlchemy(app)
 SESSION_TYPE = 'sqlalchemy'
@@ -104,14 +107,12 @@ def get_all_users():
             if item != "username" and item != "password" and item != "email":
                 del dict2[item]
         all_users.append(dict2)
-    logging.debug(all_users)
     return all_users
 
 all_users = get_all_users()
 
 
 def user_needs_avatar(User1):
-    logging.debug(type(User))
     if not isinstance(User1, User):
         raise TypeError("Expected User input")
     for i in range(len(db.session.query(Avatar).all())):
@@ -128,12 +129,16 @@ def get_updates_on_avatar(username, new_link):
     db.session.commit()
 
 def get_avatar_for_a_user(username):
+    if not isinstance(username, str):
+        raise TypeError('Expected string input')
     try:
         return db.session.query(Avatar).filter_by(img_username = username).all()[0].img_link
     except:
         return False
 
 def get_music_sheets_by_a_user(username):
+    if not isinstance(username, str):
+        raise TypeError('Expected string input')
     try:
         sheets_by_a_user = len(db.session.query(MusicSheet).filter_by(author=username).all())
         return sheets_by_a_user
@@ -146,9 +151,12 @@ def get_latest_music():
     return all_sheets
 
 def get_users_with_most_sheets():
-    users_with_most_sheets = []
-    for user in all_users:
-        users_with_most_sheets.append({"username":user["username"], "sheets":get_music_sheets_by_a_user(user["username"])})
+    users_with_most_sheets = [
+        {
+            {"username": user["username"], "sheets": get_music_sheets_by_a_user(user["username"])}
+        }
+        for user in all_users
+    ]
     logging.info(users_with_most_sheets)
     users_with_most_sheets = sorted(users_with_most_sheets, key = itemgetter("sheets"), reverse=True)
     return users_with_most_sheets
@@ -161,6 +169,8 @@ def get_comments():
     return comments
 
 def is_admin(username):
+    if not isinstance(username, str):
+        raise TypeError('Expected string input')
     return User.query.filter_by(username = username).first().isadmin
 
 def get_all_emails():
@@ -169,6 +179,8 @@ def get_all_emails():
     return dict1
 
 def get_inbox_messages_for_user(username):
+    if not isinstance(username, str):
+        raise TypeError('Expected string input')
     inbox_messages_for_user = []
     for i in range(len(Message.query.all())):
         dict1 = vars(Message.query.all()[i]).copy()
@@ -177,21 +189,56 @@ def get_inbox_messages_for_user(username):
             logging.info(item)
         if dict1["recipient"] == username:
             dict1["avatar"] = get_avatar_for_a_user(dict1["author"])
-            logging.info(dict1)
-            logging.info(type(dict1))
             inbox_messages_for_user.append(dict1)
     return inbox_messages_for_user
 
+def get_artists_letter(letter):
+    artists_letter = []
+    if not isinstance(letter, str):
+        raise TypeError("Expected string input")
+    if len(letter) > 1:
+        raise ValueError("String is too long")
+    for i in range(len(MusicSheet.query.all())):
+        dict1 = vars(MusicSheet.query.all()[i])
+        if (" - ") in dict1["title"]:
+            if dict1["title"][0] == letter: #or dict1["title"][0] == letter.lower():
+                dict1["title"] = dict1["title"].split(" - ")[0]
+                if dict1["title"] not in artists_letter:
+                    artists_letter.append(dict1["title"])
+    return artists_letter
+
+def get_music_sheets_by_artist(artist):
+    music_sheets_by_artist = []
+    for i in range(len(MusicSheet.query.all())):
+        if (" - ") in MusicSheet.query.all()[i].title:
+            artist_name = MusicSheet.query.all()[i].title.split(" - ")[0]
+            if artist_name == artist:
+                music_sheets_by_artist.append(MusicSheet.query.all()[i])
+    return music_sheets_by_artist
+
 def get_music_sheets_letter(letter):
+    if not isinstance(letter, str):
+        raise TypeError('Expected string input')
+    if len(letter) > 1:
+        raise ValueError("String is too long")
     music_sheets_for_letter = []
     for i in range(len(MusicSheet.query.all())):
         dict1 = vars(MusicSheet.query.all()[i])
-        #get titles that start with both the lowercase and the uppercase
-        if dict1["title"][0] == letter: #or dict1["title"][0] == letter.lower():
-            music_sheets_for_letter.append(dict1)
+        if (" - ") not in dict1["title"]:
+            #get titles that start with both the lowercase and the uppercase
+            if dict1["title"][0] == letter: #or dict1["title"][0] == letter.lower():
+                music_sheets_for_letter.append(dict1)
+        else:
+            dict1["artist"] = dict1["title"].split(" - ")[0]
+            dict1["title"] = dict1["title"].split(" - ")[1]
+            if dict1["title"][0] == letter: #or dict1["title"][0] == letter.lower():
+                music_sheets_for_letter.append(dict1)
+
     return music_sheets_for_letter
 
 def get_music_sheets_for_genre(genre):
+    if not isinstance(genre, str):
+        raise TypeError('Expected string input')
     music_sheets_for_genre = []
     for i in range(len(MusicSheet.query.all())):
         dict1 = vars(MusicSheet.query.all()[i])
@@ -207,17 +254,22 @@ def get_most_active_users():
         user["avatar"] = get_avatar_for_a_user(user["username"])
         if user["sheets"] > 0:
             most_active_users.append(user)
+    most_active_users = sorted(most_active_users, key = itemgetter("sheets"), reverse = True)
     return most_active_users
 
 def get_latest_users():
-    users = all_users[-4:]
+    users = User.query.order_by(User.datetime).all()
+    users.reverse()
     for user in users:
+        user = vars(user)
         user["avatar"] = get_avatar_for_a_user(user["username"])
-    return users
+    return users[:4]
 
 @app.route("/")
 @cross_origin()
 def index():
+    logging.info(get_music_sheets_letter("A"))
+    logging.info(get_most_active_users())
     latest_music = get_latest_music()
     loaded_music_sheet = request.args.get("loaded_sheet")
     if loaded_music_sheet != None:
@@ -228,6 +280,7 @@ def index():
                                loaded_sheet = loaded_sheet, latest_users = get_latest_users(), most_active_users = get_most_active_users())
     avatar = get_avatar_for_a_user(current_user.username)
     logging.info(request.args.get("avatar"))
+    logging.info("--- %s seconds ---" % (time.time() - start_time))
     return render_template("index.html", loggedinuser = current_user.username, keyboard_notes = keyboard_notes, keyboard_sounds = keyboard_sounds, avatar = avatar, latest_music = latest_music,
                            loaded_sheet = loaded_sheet, latest_users = get_latest_users(), most_active_users = get_most_active_users(), admin = current_user.isadmin)
 
@@ -295,13 +348,13 @@ def music():
 def genres():
     if current_user.is_anonymous:
         return render_template("music/genres.html")
-    return render_template("music/genres.html", loggedinuser = current_user.username)
+    return render_template("music/genres.html", loggedinuser = current_user.username, admin = current_user.isadmin)
 
 @app.route('/music/genres/<string:genre>')
 def sheets_genre(genre):
     if current_user.is_anonymous:
         return render_template("music/genre.html", genre = genre, music_sheets_for_genre = get_music_sheets_for_genre(genre))
-    return render_template("music/genre.html", loggedinuser = current_user.username, genre = genre, music_sheets_for_genre = get_music_sheets_for_genre(genre))
+    return render_template("music/genre.html", loggedinuser = current_user.username, genre = genre, music_sheets_for_genre = get_music_sheets_for_genre(genre), admin = current_user.isadmin)
 
 @app.route('/music/sort_genres', methods = ["GET", "POST"])
 @login_required
@@ -312,6 +365,22 @@ def sort_genres():
         dict1 = vars(MusicSheet.query.all()[i])
         music_sheets.append(dict1)
     return render_template("music/sort_genres.html", music_sheets = music_sheets, loggedinuser = current_user.username, admin = is_admin(current_user.username))
+
+@app.route('/music/artists')
+def artists():
+    letter = request.args.get('letter')
+    music_artists = get_artists_letter(letter)
+    if current_user.is_anonymous:
+        return render_template("music/artists.html", letter = letter, music_artists = music_artists)
+    return render_template("music/artists.html", loggedinuser = current_user.username, letter=letter,
+                           music_artists=music_artists)
+
+@app.route('/music/artists/<string:artist>')
+def artist(artist):
+    music_sheets_by_artist = get_music_sheets_by_artist(artist)
+    if current_user.is_anonymous:
+        return render_template("music/artist.html", artist = artist, music_sheets_by_artist =  music_sheets_by_artist)
+    return render_template("music/artist.html", loggedinuser = current_user.username, artist = artist, music_sheets_by_artist = music_sheets_by_artist)
 
 @app.route('/music/sheets')
 def music_sheets():
@@ -324,7 +393,7 @@ def music_sheets():
 
 @app.route('/music/sheets/<int:sheet_id>')
 def music_sheet(sheet_id):
-    music_sheet = vars(MusicSheet.query.all()[sheet_id - 1])
+    music_sheet = vars(MusicSheet.query.filter_by(id = sheet_id).first())
     if current_user.is_anonymous:
         return render_template("music/music_sheet.html", music_sheet = music_sheet)
     return render_template("music/music_sheet.html", loggedinuser = current_user.username, music_sheet = music_sheet)
@@ -346,14 +415,14 @@ def update_sheet(id):
         db.session.add(sheet)
         db.session.commit()
         return redirect("/music/sort_genres")
-    return render_template("/music/update_genres.html")
+    return render_template("/music/update_genres.html", loggedinuser = current_user.username, admin = current_user.isadmin)
 
 @app.route('/music/sheets/delete/<int:id>')
 def delete_sheet(id):
     sheet = MusicSheet.query.get_or_404(id)
     db.session.delete(sheet)
     db.session.commit()
-    return redirect(url_for('sheets_genres'))
+    return redirect('/music/sort_genres')
 
 @app.route('/learn_teach', methods = ["GET", "POST"])
 def learn_teach():
@@ -367,7 +436,7 @@ def learn_teach():
             return redirect(request.url)
     if current_user.is_anonymous:
         return render_template("learn_teach.html", learn_teach_users = learn_teach_users)
-    return render_template("learn_teach.html", loggedinuser = current_user.username, learn_teach_users = learn_teach_users)
+    return render_template("learn_teach.html", loggedinuser = current_user.username, learn_teach_users = learn_teach_users, admin = current_user.isadmin)
 
 @app.route("/login/", methods = ["GET", "POST"])
 def login():

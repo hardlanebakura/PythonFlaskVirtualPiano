@@ -4,6 +4,7 @@
 
 <title>Music Sheets By Letter</title>
 <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/sheets.css') }}">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/music_sheets.css') }}">
 
 {% endblock %}
 
@@ -20,7 +21,14 @@
         {% endif %}
         {% if music_sheets|length > 0 %}
         {% for sheet in music_sheets %}
-            {{ sheet.title }} <br>
+            <div class = "music_sheet_for_genre_title" style = "margin-bottom:14px;">
+                <a href = "/music/sheets/{{ sheet.id }}">
+                    {{ sheet.title.split(".")[0] }} <br>
+                </a>
+            </div>
+            {% if sheet.artist %}
+                by {{ sheet.artist }} <br>
+            {% endif %}
             uploaded by {{ sheet.author }} <br>
         {% endfor %}
         {% else %}
