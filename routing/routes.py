@@ -6,9 +6,10 @@ from keys import keyboard_notes, keyboard_sounds
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from log_config import logging
 import time
+import os
 
 index_pages = Blueprint('index', __name__,
-                        template_folder='Templates', static_folder='static')
+                        template_folder='Templates', static_folder='static', url_prefix = "/")
 
 @index_pages.route("/")
 @cross_origin()
@@ -27,3 +28,4 @@ def index():
     logging.info(request.args.get("avatar"))
     return render_template("index.html", loggedinuser = current_user.username, keyboard_notes = keyboard_notes, keyboard_sounds = keyboard_sounds, avatar = avatar, latest_music = latest_music,
                            loaded_sheet = loaded_sheet, latest_users = get_latest_users(), most_active_users = get_most_active_users(), admin = current_user.isadmin)
+
