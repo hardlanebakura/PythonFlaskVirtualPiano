@@ -30,7 +30,9 @@
         {% endif %}
         <div class = "learn_teach_requests">
             {% for user in learn_teach_users %}
-            {{ user.username }} is looking to {{ user.is_searching }}
+            <div class = "learn_teach_requests_user">
+                {{ user.username }} is looking to {{ user.is_searching }}
+            </div>
             {% if loggedinuser %}
             <div class = "learn_teach_requests_message">
                 <a href = "/compose_message?recipient={{ user.username }}">
@@ -38,7 +40,6 @@
                 </a>
             </div>
             {% else %}
-            <br><br>
             You must be logged in to message the user. <br><br>
             {% endif %}
             {% endfor %}

@@ -22,7 +22,7 @@ def music_post():
 @music_pages.route('/')
 def music():
     if current_user.is_anonymous:
-        return render_template("music_sheets.html", comments = get_comments(), latest_music = get_latest_music())
+        return render_template("/music/music_sheets.html", comments = get_comments(), latest_music = get_latest_music())
     return render_template("/music/music_sheets.html", loggedinuser=current_user.username, avatar = get_avatar_for_a_user(current_user.username), comments = get_comments(), latest_music = get_latest_music(),
                            admin = is_admin(current_user.username))
 
@@ -77,7 +77,7 @@ def music_sheets():
 def music_sheet(sheet_id):
     music_sheet = vars(MusicSheet.query.filter_by(id = sheet_id).first())
     if current_user.is_anonymous:
-        return render_template("music_sheet.html", music_sheet = music_sheet)
+        return render_template("music/music_sheet.html", music_sheet = music_sheet)
     return render_template("music/music_sheet.html", loggedinuser = current_user.username, music_sheet = music_sheet)
 
 @music_pages.route('/sheets/edit/<int:id>', methods = ["GET", "POST"])
