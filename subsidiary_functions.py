@@ -2,6 +2,10 @@ from config import *
 from db_models import *
 from log_config import logging
 from operator import itemgetter
+from create_app import create_app
+
+app = create_app()
+
 
 for i in range(len(Avatar.query.all())):
     dict1 = vars(Avatar.query.all()[i]).copy()

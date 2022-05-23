@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, Blueprint, abort
 from flask_cors import CORS, cross_origin
 from jinja2 import TemplateNotFound
+from subsidiary_functions import *
+from keys import keyboard_notes, keyboard_sounds
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from log_config import logging
+import time
 
 index_pages = Blueprint('index', __name__,
                         template_folder='Templates', static_folder='static')
@@ -21,6 +25,5 @@ def index():
                                loaded_sheet = loaded_sheet, latest_users = get_latest_users(), most_active_users = get_most_active_users())
     avatar = get_avatar_for_a_user(current_user.username)
     logging.info(request.args.get("avatar"))
-    logging.info("--- %s seconds ---" % (time.time() - start_time))
     return render_template("index.html", loggedinuser = current_user.username, keyboard_notes = keyboard_notes, keyboard_sounds = keyboard_sounds, avatar = avatar, latest_music = latest_music,
                            loaded_sheet = loaded_sheet, latest_users = get_latest_users(), most_active_users = get_most_active_users(), admin = current_user.isadmin)

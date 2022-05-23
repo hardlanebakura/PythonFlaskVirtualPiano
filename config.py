@@ -14,9 +14,9 @@ def set_config(dict, env):
     dict['SQLALCHEMY_BINDS'] = {"users": "sqlite:///users.db", "avatars": "sqlite:///avatars.db", "messages": "sqlite:///messages.db", "comments": "sqlite:///comments.db", "music_sheets": "sqlite:///music_sheets.db", "learn_teach_users": "sqlite:///learn_teach.db"}
     dict['TEMPLATES_AUTO_RELOAD'] = True
     dict["CACHE_TYPE"] = "redis"
-    dict['UPLOAD_PATH'] = "C:\\Users\dESKTOP I5\PycharmProjects\\PythonFlaskAsimov\\static\\uploads\\images"
-    dict['UPLOAD_MUSIC_PATH'] = "C:\\Users\dESKTOP I5\PycharmProjects\\PythonFlaskAsimov\\static\\uploads\\music"
-    dict['DEFAULT_AVATAR'] = "C:\\Users\dESKTOP I5\PycharmProjects\\PythonFlaskAsimov\\static\\images\\login-icon.jpg"
+    dict['UPLOAD_PATH'] = "C:\\Users\dESKTOP I5\PycharmProjects\\PythonFlaskVirtualPiano\\static\\uploads\\images"
+    dict['UPLOAD_MUSIC_PATH'] = "C:\\Users\dESKTOP I5\PycharmProjects\\PythonFlaskVirtualPiano\\static\\uploads\\music"
+    dict['DEFAULT_AVATAR'] = "C:\\Users\dESKTOP I5\PycharmProjects\\PythonFlaskVirtualPiano\\static\\images\\login-icon.jpg"
     dict['CORS_HEADERS'] = 'Content-Type'
 
     # setting jinja_env
