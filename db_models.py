@@ -67,40 +67,6 @@ class LearnTeach(db.Model):
     def __repr__(self):
         return "Learn/Teach " + str(self.id)
 
-class DanceDate(db.Model):
-    __bind_key__ = "dates"
-    id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime)
-
-    @staticmethod
-    def insert_one(data):
-        DanceDate1 = DanceDate(date = data)
-        db.session.add(DanceDate1)
-        db.session.commit()
-
-    @staticmethod
-    def find_all_filter(data):
-        search_matches = db.session.query(DanceDate).filter_by(date = data).all()
-        if len(search_matches) > 0:
-            return search_matches
-        else: return None
-
-    @staticmethod
-    def find_all():
-        search_matches = [vars(item) for item in DanceDate.query.all()]
-        list1 = [item["date"].strftime("%d/%m/%Y/%H:%M:%S - {}:00:00".format(int(item["date"].strftime("%H")) + 1)) for item in search_matches]
-        return list1
-
-    @staticmethod
-    def delete_all():
-        db.session.query(DanceDate).delete()
-        db.session.commit()
-
-    @staticmethod
-    def delete_one(data):
-        DanceDate.query.filter_by(date = data).delete()
-        db.session.commit()
-
 class Book(db.Model):
     __bind_key__ = "books"
     id = db.Column(db.Integer, primary_key=True)
