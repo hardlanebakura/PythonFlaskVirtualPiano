@@ -1,102 +1,51 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session, flash, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
-from config import set_config
+from config import *
 from datetime import datetime
 from log_config import logging
 from keys import keyboard_notes, keyboard_sounds
 from flask_cors import CORS, cross_origin
+from db_models import *
 import os
 from operator import itemgetter
-from admins import ADMINS
+from dotenv import dotenv_values
 import time
 
-app = Flask(__name__, template_folder = "Templates")
+ADMINS = dotenv_values("admins.env")["ADMINS"]
+
+def create_app():
+    app = Flask(__name__, template_folder = "Templates")
+
+    set_config(app.config, app.jinja_env)
+
+    db.init_app(app)
+    #with app.app_context():
+        #db.create_all()
+    app.app_context().push()
+    SESSION_TYPE = 'sqlalchemy'
+    app.config.from_object(__name__)
+
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
+    return app
+
+app = create_app()
+
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-set_config(app.config, app.jinja_env)
-
 start_time = time.time()
-
-db = SQLAlchemy(app)
-SESSION_TYPE = 'sqlalchemy'
-app.config.from_object(__name__)
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), nullable=False, unique=True)
-    username = db.Column(db.String(100), nullable=False, unique=True)
-    password = db.Column(db.String(100), nullable=False)
-    datetime = db.Column(db.DateTime, default = datetime.utcnow)
-    isadmin = db.Column(db.Boolean, default = False)
-
-    def __repr__(self):
-        return "User " + str(self.id)
-
-class Avatar(db.Model):
-    __bind_key__ = "avatars"
-    id = db.Column(db.Integer, primary_key=True)
-    img_link = db.Column(db.String(100), nullable=False)
-    img_username = db.Column(db.String(100), nullable=False, unique=True)
-    datetime = db.Column(db.DateTime, default = datetime.utcnow)
-
-    def __repr__(self):
-        return "Avatar " + str(self.id)
-
-class MusicSheet(db.Model):
-    __bind_key__ = "music_sheets"
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False, unique=True)
-    content = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(100), nullable=False)
-    genre = db.Column(db.String(100))
-    datetime = db.Column(db.DateTime, default = datetime.utcnow)
-
-    def __repr__(self):
-        return "Music Sheet " + str(self.id)
-
-class Comment(db.Model):
-    __bind_key__ = "comments"
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(100), nullable=False)
-    datetime = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return "Comment " + str(self.id)
-
-class Message(db.Model):
-    __bind_key__ = "messages"
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
-    author = db.Column(db.String(100), nullable=False)
-    recipient = db.Column(db.String(100), nullable=False)
-    datetime = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return "Message " + str(self.id)
-
-class LearnTeach(db.Model):
-    __bind_key__ = "learn_teach_users"
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), nullable=False, unique=True)
-    is_searching = db.Column(db.String(100))
-    datetime = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return "Learn/Teach " + str(self.id)
 
 for i in range(len(Avatar.query.all())):
     dict1 = vars(Avatar.query.all()[i]).copy()
 
 users_amount = len(db.session.query(User).all())
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 def get_all_users():
     all_users = []
