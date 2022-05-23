@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, Blueprint, abort
 from flask_cors import CORS, cross_origin
-from jinja2 import TemplateNotFound
 from subsidiary_functions import *
-from keys import keyboard_notes, keyboard_sounds
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 from log_config import logging
 import time
-import os
 
 learn_teach_pages = Blueprint('learn_teach', __name__,
                         template_folder='Templates', static_folder='static', url_prefix = "/")
