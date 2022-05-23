@@ -1,7 +1,6 @@
 var changeHover = document.getElementsByClassName("changetodoonhover");
 var registerLoginLink = document.getElementById("registerloginlink");
 var darkOrange = "#ff8300";
-console.log(changeHover.length);
 
 for (let i = 0; i < changeHover.length; i++) {
 
@@ -9,7 +8,7 @@ for (let i = 0; i < changeHover.length; i++) {
 
         changeHover[i].style.backgroundColor = darkOrange;
         changeHover[i].style.color = "#000";
-        if (changeHover[i].innerText == "Register / Login") registerLoginLink.style.color = "#000";
+        (changeHover[i].innerText == "Register / Login") ? registerLoginLink.style.color = "#000" : {};
 
     })
 
@@ -17,7 +16,7 @@ for (let i = 0; i < changeHover.length; i++) {
 
         changeHover[i].style.backgroundColor = "#000";
         changeHover[i].style.color = darkOrange;
-        if (changeHover[i].innerText == "Register / Login") registerLoginLink.style.color = darkOrange;
+        (changeHover[i].innerText == "Register / Login") ? registerLoginLink.style.color = darkOrange : {};
 
     })
 
@@ -71,6 +70,3 @@ else {
 
 }
 
-console.log(linkPlay.href);
-console.log(linkPlayElement.childNodes[1]);
-console.log(linkPlayElement.innerText);

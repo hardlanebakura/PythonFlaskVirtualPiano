@@ -35,11 +35,7 @@ for (let i = 0; i < inboxMessage.length; i++) {
 
     for (let j = 0; j < inboxMessage.length; j++) {
 
-        if (i != j) {
-
-            inboxMessageElement[j].style.backgroundColor = "#fff";
-
-        }
+        if (i != j) inboxMessageElement[j].style.backgroundColor = "#fff";
 
     }
 
@@ -47,4 +43,4 @@ for (let i = 0; i < inboxMessage.length; i++) {
 
 }
 
-console.log(inboxMessages.length);
+

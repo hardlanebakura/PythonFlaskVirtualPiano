@@ -78,7 +78,7 @@ def music_sheet(sheet_id):
     music_sheet = vars(MusicSheet.query.filter_by(id = sheet_id).first())
     if current_user.is_anonymous:
         return render_template("music_sheet.html", music_sheet = music_sheet)
-    return render_template("music_sheet.html", loggedinuser = current_user.username, music_sheet = music_sheet)
+    return render_template("music/music_sheet.html", loggedinuser = current_user.username, music_sheet = music_sheet)
 
 @music_pages.route('/sheets/edit/<int:id>', methods = ["GET", "POST"])
 def edit_sheet(id):

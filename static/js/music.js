@@ -8,9 +8,6 @@ var themeNames = document.getElementsByClassName("theme_name");
 var artistNames = document.getElementsByClassName("artist_name");
 genreNames = Array.from(genreNames).concat(Array.from(themeNames).concat(Array.from(artistNames)));
 
-console.log(artistsElementButton.length);
-console.log(artistsLink.length);
-
 for (let i = 0; i < artistsElementButton.length; i++) {
 
     artistsLink[i].setAttribute("href", `/music/artists?letter=${artistsElementButton[i].innerText}`);
