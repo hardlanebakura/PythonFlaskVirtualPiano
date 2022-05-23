@@ -7,7 +7,9 @@ import selenium.common.exceptions as e
 import os
 import sys
 import inspect
-from admins import ADMINS
+from dotenv import dotenv_values
+
+ADMINS = dotenv_values("admins.env")["ADMINS"]
 
 def login_session_simulation(user_username, user_password):
 
