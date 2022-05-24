@@ -5,13 +5,7 @@ This project is a virtual piano website with options to play the piano, upload y
 <img src = "https://user-images.githubusercontent.com/74912567/169733711-325aecf5-667d-44fc-85f8-da292f715317.png" height = "170" width = "230">
 <img src = "static/images/autoplay_music.png" height = "170" width = "230">
 
-## Special features
-
-Login with these special credential
-
-## hardlane2000 hardlane17 ##
-
-in order to test special features (delete or edit user sheets as well as take a look at the user API)
+Admins have the ability to delete or edit user sheets (example admin hardlane2000 hardlane17)
 
 Hosted app on Heroku: http://pythonflaskvirtualpiano.herokuapp.com/
 

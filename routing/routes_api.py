@@ -13,7 +13,7 @@ api_pages = Blueprint('api', __name__,
 @api_pages.route("/")
 def api():
     all_users = User.find_all()
-    return jsonify({"All routes": [{"all_users":"/api/all_users", "all_sheets":"/api/all_sheets", "all_comments":"/api/all_comments"}]})
+    return jsonify({"All routes": [{"all_users":"/api/all_users", "all_sheets":"/api/all_sheets", "all_comments":"/api/all_comments", "all_avatars":"/api/all_avatars"}]})
 
 @api_pages.route("/all_users")
 def all_users():
@@ -26,9 +26,14 @@ def all_sheets():
     return jsonify({"all_sheets": all_sheets})
 
 @api_pages.route("/all_comments")
-def all_():
+def all_comments():
     all_comments = Comment.find_all()
     return jsonify({"all_comments": all_comments})
+
+@api_pages.route("/all_avatars")
+def all_avatars():
+    all_avatars = Avatar.find_all()
+    return jsonify({"all_avatars": all_avatars})
 
 
 

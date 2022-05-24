@@ -3,6 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from config import db
 
+def get_properties(object):
+    d = {}
+    for var in vars(object):
+        if var != "_sa_instance_state" and var != "id" and var != "password":
+            d[var] = vars(object)[var]
+    return d
+
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), nullable=False, unique=True)
@@ -22,11 +30,7 @@ class User(UserMixin, db.Model):
     def find_all():
         search_matches = []
         for item in User.query.all():
-            d = {}
-            for var in vars(item):
-                if var != "_sa_instance_state" and var != "id" and var != "password":
-                    d[var] = vars(item)[var]
-            search_matches.append(d)
+            search_matches.append(get_properties(item))
         return search_matches
 
     def __repr__(self):
@@ -38,6 +42,22 @@ class Avatar(db.Model):
     img_link = db.Column(db.String(100), nullable=False)
     img_username = db.Column(db.String(100), nullable=False, unique=True)
     datetime = db.Column(db.DateTime, default = datetime.utcnow)
+
+    @staticmethod
+    def find_user_for_avatar(avatar):
+        user_match = User.find_all_filter(avatar.img_username)[0]
+        avatar.email = user_match.email
+        avatar.owner_is_admin = user_match.isadmin
+        #user_match = get_properties([User.find_all_filter(avatar.img_username)][0])
+        return avatar
+
+    @staticmethod
+    def find_all():
+        search_matches = []
+        for item in Avatar.query.all():
+            Avatar.find_user_for_avatar(item)
+            search_matches.append(get_properties(item))
+        return search_matches
 
     def __repr__(self):
         return "Avatar " + str(self.id)
@@ -55,11 +75,7 @@ class MusicSheet(db.Model):
     def find_all():
         search_matches = []
         for item in MusicSheet.query.all():
-            d = {}
-            for var in vars(item):
-                if var != "_sa_instance_state" and var != "id" and var != "password":
-                    d[var] = vars(item)[var]
-            search_matches.append(d)
+            search_matches.append(get_properties(item))
         return search_matches
 
     def __repr__(self):
@@ -76,11 +92,7 @@ class Comment(db.Model):
     def find_all():
         search_matches = []
         for item in Comment.query.all():
-            d = {}
-            for var in vars(item):
-                if var != "_sa_instance_state" and var != "id" and var != "password":
-                    d[var] = vars(item)[var]
-            search_matches.append(d)
+            search_matches.append(get_properties(item))
         return search_matches
 
     def __repr__(self):
@@ -94,6 +106,13 @@ class Message(db.Model):
     recipient = db.Column(db.String(100), nullable=False)
     datetime = db.Column(db.DateTime, default=datetime.utcnow)
 
+    @staticmethod
+    def find_all():
+        search_matches = []
+        for item in Message.query.all():
+            search_matches.append(get_properties(item))
+        return search_matches
+
     def __repr__(self):
         return "Message " + str(self.id)
 
@@ -103,6 +122,13 @@ class LearnTeach(db.Model):
     username = db.Column(db.String(100), nullable=False, unique=True)
     is_searching = db.Column(db.String(100))
     datetime = db.Column(db.DateTime, default=datetime.utcnow)
+
+    @staticmethod
+    def find_all():
+        search_matches = []
+        for item in LearnTeach.query.all():
+            search_matches.append(get_properties(item))
+        return search_matches
 
     def __repr__(self):
         return "Learn/Teach " + str(self.id)
