@@ -38,7 +38,7 @@ def sheets_genre(genre):
         return render_template("music/genre.html", genre = genre, music_sheets_for_genre = get_music_sheets_for_genre(genre))
     return render_template("music/genre.html", loggedinuser = current_user.username, genre = genre, music_sheets_for_genre = get_music_sheets_for_genre(genre), admin = current_user.isadmin)
 
-@music_pages.route('/sort_genres', methods = ["GET", "POST"])
+@music_pages.route('/sort_genres/', methods = ["GET", "POST"])
 @login_required
 def sort_genres():
     #admins sort out genres of existing sheets
@@ -84,8 +84,8 @@ def music_sheet(sheet_id):
 def edit_sheet(id):
     sheet = MusicSheet.query.get_or_404(id)
     if request.method == "POST":
-        return render_template("/edit_genres.html", sheet = sheet)
-    return render_template("/edit_genres.html", sheet = sheet)
+        return render_template("music/edit_genres.html", sheet = sheet)
+    return render_template("music/edit_genres.html", sheet = sheet)
 
 @music_pages.route('/sheets/update/<int:id>', methods = ["GET", "POST"])
 def update_sheet(id):
@@ -96,12 +96,12 @@ def update_sheet(id):
         sheet.genre = selected_option
         db.session.add(sheet)
         db.session.commit()
-        return redirect("/sort_genres")
-    return render_template("/update_genres.html", loggedinuser = current_user.username, admin = current_user.isadmin)
+        return redirect("/music/sort_genres")
+    return render_template("music/update_genres.html", loggedinuser = current_user.username, admin = current_user.isadmin)
 
 @music_pages.route('/sheets/delete/<int:id>')
 def delete_sheet(id):
     sheet = MusicSheet.query.get_or_404(id)
     db.session.delete(sheet)
     db.session.commit()
-    return redirect('/sort_genres')
+    return redirect('/music/sort_genres')

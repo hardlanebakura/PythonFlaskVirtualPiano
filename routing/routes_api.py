@@ -23,6 +23,7 @@ def all_users():
 @api_pages.route("/all_sheets")
 def all_sheets():
     all_sheets = MusicSheet.find_all()
+    logging.info(all_sheets)
     return jsonify({"all_sheets": all_sheets})
 
 @api_pages.route("/all_comments")

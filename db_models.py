@@ -48,7 +48,6 @@ class Avatar(db.Model):
         user_match = User.find_all_filter(avatar.img_username)[0]
         avatar.email = user_match.email
         avatar.owner_is_admin = user_match.isadmin
-        #user_match = get_properties([User.find_all_filter(avatar.img_username)][0])
         return avatar
 
     @staticmethod
@@ -75,7 +74,10 @@ class MusicSheet(db.Model):
     def find_all():
         search_matches = []
         for item in MusicSheet.query.all():
-            search_matches.append(get_properties(item))
+            properties = get_properties(item)
+            del properties["content"]
+            properties["title"] = properties["title"].split(".txt")[0]
+            search_matches.append(properties)
         return search_matches
 
     def __repr__(self):
